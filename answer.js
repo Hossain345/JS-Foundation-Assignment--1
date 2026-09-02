@@ -10,16 +10,16 @@ function describeValue(any_value){
     return  `${typeof any_value} | ${result}`;
 }
 
-console.log(describeValue("hello"));
-console.log(describeValue(""));
-console.log(describeValue(25));
-console.log(describeValue(0));
-console.log(describeValue(true));
-console.log(describeValue(undefined));
+console.log(describeValue("hello"));  //string | truthy
+console.log(describeValue("")); // string | falsy
+console.log(describeValue(25)); // number | truthy
+console.log(describeValue(0)); // number | falsy
+console.log(describeValue(true)); // boolean | truthy
+console.log(describeValue(undefined)); // undefined | falsy
 //watch out for these three...
-console.log(describeValue("0"));
-console.log(describeValue(NaN));
-console.log(describeValue(null));
+console.log(describeValue("0")); // string | truthy
+console.log(describeValue(NaN)); // number | falsy
+console.log(describeValue(null)); // object | falsy
 
 
 //q2 solve...[Bangladesh Weekend Machine]
@@ -43,10 +43,10 @@ function getDayType(day){
     }
 }
 
-console.log(getDayType("Friday"));
-console.log(getDayType("friday"));
-console.log(getDayType("MONDAY"));
-console.log(getDayType("Bandarban"));
+console.log(getDayType("Friday")); // Weekend
+console.log(getDayType("friday")); // Weekend
+console.log(getDayType("MONDAY")); // Working Day
+console.log(getDayType("Bandarban")); // Invalid Day
 
 
 //q3 solve...[Username Gatekeeper]
@@ -66,13 +66,13 @@ function validateUsername(username){
     }
 }
 
-console.log(validateUsername("rahim123"));
-console.log(validateUsername("ab"));
-console.log(validateUsername("a b"));
-console.log(validateUsername("abcd"));
-console.log(validateUsername("rahim islam"));
-console.log(validateUsername("superadmin99"));
-console.log(validateUsername("Admin_Rahim"));
+console.log(validateUsername("rahim123")); // Available
+console.log(validateUsername("ab")); // Too Short
+console.log(validateUsername("a b")); // Too Short
+console.log(validateUsername("abcd")); // Available
+console.log(validateUsername("rahim islam")); // No Space Allowed
+console.log(validateUsername("superadmin99")); // Reserved Word
+console.log(validateUsername("Admin_Rahim")); // Reserved Word
 
 
 //q4 solve...[Dhaka CNG Fare Meter]
@@ -97,13 +97,13 @@ function getCngFare(distance, isNight=false, waitingMinutes=0){
     return fare;
 }
 
-console.log(getCngFare(2));
-console.log(getCngFare(1));
-console.log(getCngFare(5));
-console.log(getCngFare(10));
-console.log(getCngFare(5, false, 10)); 
-console.log(getCngFare(5, true));
-console.log(getCngFare(5, true, 10));
+console.log(getCngFare(2)); // 50
+console.log(getCngFare(1)); // 50
+console.log(getCngFare(5)); // 95
+console.log(getCngFare(10)); // 170
+console.log(getCngFare(5, false, 10)); // 115
+console.log(getCngFare(5, true)); // 114
+console.log(getCngFare(5, true, 10)); // 138
 
 
 //q5 solve...[Run  Chase Commentator]
@@ -130,11 +130,10 @@ const getChaseVerdict = (target, score, ballsLeft) => {
     return `Need ${runsneeded} runs in ${ballsLeft} balls | ${verdict}`;
 };
 
-console.log(getChaseVerdict(200, 200, 12));
-console.log(getChaseVerdict(200, 190, 0));
-console.log(getChaseVerdict(100, 90, 12));
-console.log(getChaseVerdict(100, 80, 12));
-console.log(getChaseVerdict(100, 70, 12));
-console.log(getChaseVerdict(150, 149, 1));
-
+console.log(getChaseVerdict(200, 200, 12)); // Won
+console.log(getChaseVerdict(200, 190, 0)); // Lost
+console.log(getChaseVerdict(100, 90, 12)); // Need 10 runs in 12 balls | Comfortable
+console.log(getChaseVerdict(100, 80, 12)); // Need 20 runs in 12 balls | Tough
+console.log(getChaseVerdict(100, 70, 12)); // Need 30 runs in 12 balls | Almost Impossible
+console.log(getChaseVerdict(150, 149, 1)); // Need 1 runs in 1 balls | Comfortable
 
