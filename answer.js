@@ -1,4 +1,4 @@
-//q1 solve...
+//q1 solve...[Value detection]
 function describeValue(any_value){
     let result;
 
@@ -20,4 +20,32 @@ console.log(describeValue(undefined));
 console.log(describeValue("0"));
 console.log(describeValue(NaN));
 console.log(describeValue(null));
+
+
+//q2 solve...[Bangladesh Weekend Machine]
+function getDayType(day){
+    day = day.toLowerCase();
+
+    switch(day){
+        case "friday" :
+        case "saturday" :
+            return "Weekend";
+
+        case "sunday" :
+        case "monday" :
+        case "tuesday" :
+        case "wednesday" :
+        case "thursday" :
+            return "Working Day";
+
+        default :
+            return "Invalid Day";  
+    }
+}
+
+console.log(getDayType("Friday"));
+console.log(getDayType("Friday"));
+console.log(getDayType("MONDAY"));
+console.log(getDayType("Bandarban"));
+
 
