@@ -49,3 +49,30 @@ console.log(getDayType("MONDAY"));
 console.log(getDayType("Bandarban"));
 
 
+//q3 solve...[Username Gatekeeper]
+function validateUsername(username){
+    let length= username.length;
+    let contain_space= username.includes(" ");
+    let any_letter= username.toLowerCase().includes("admin");
+
+    if(length<4){
+        return "Too Short"
+    }else if(contain_space){
+        return "No Space Allowed"
+    }else if(any_letter){
+        return "Reserved Word"
+    }else{
+        return "Available"
+    }
+}
+
+console.log(validateUsername("rahim123"));
+console.log(validateUsername("ab"));
+console.log(validateUsername("a b"));
+console.log(validateUsername("abcd"));
+console.log(validateUsername("rahim islam"));
+console.log(validateUsername("superadmin99"));
+console.log(validateUsername("Admin_Rahim"));
+
+
+
