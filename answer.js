@@ -75,4 +75,33 @@ console.log(validateUsername("superadmin99"));
 console.log(validateUsername("Admin_Rahim"));
 
 
+//q4 solve...[Dhaka CNG Fare Meter]
+function getCngFare(distance, isNight=false, waitingMinutes=0){
+    let fare=0;
+
+    if (distance<=2){
+        fare=50;
+    }else if(distance>2){
+        let extra_distance= distance-2;
+        let extra_fare= extra_distance*15;
+
+        fare =50+ extra_fare;
+    }
+
+    let waiting_fare= waitingMinutes*2;
+    fare+= waiting_fare;
+
+    if(isNight){
+        fare*=(1.0+0.2);
+    }
+    return fare;
+}
+
+console.log(getCngFare(2));
+console.log(getCngFare(1));
+console.log(getCngFare(5));
+console.log(getCngFare(10));
+console.log(getCngFare(5, false, 10)); 
+console.log(getCngFare(5, true));
+console.log(getCngFare(5, true, 10));
 
