@@ -105,3 +105,36 @@ console.log(getCngFare(5, false, 10));
 console.log(getCngFare(5, true));
 console.log(getCngFare(5, true, 10));
 
+
+//q5 solve...[Run  Chase Commentator]
+const getChaseVerdict = (target, score, ballsLeft) => {
+    let runsneeded= target-score;
+
+    if(runsneeded<=0){
+        return "Won";
+    }
+    if(ballsLeft<=0){
+        return "Lost";
+    }
+
+    let requiredRate= (runsneeded/ballsLeft) * 6;
+    let verdict;
+    if(requiredRate<=6){
+        verdict="Comfortable"
+    }else if(requiredRate<=12){
+        verdict= "Tough";
+    }else{
+        verdict= "Almost Impossible";
+    }
+
+    return `Need ${runsneeded} runs in ${ballsLeft} balls | ${verdict}`;
+};
+
+console.log(getChaseVerdict(200, 200, 12));
+console.log(getChaseVerdict(200, 190, 0));
+console.log(getChaseVerdict(100, 90, 12));
+console.log(getChaseVerdict(100, 80, 12));
+console.log(getChaseVerdict(100, 70, 12));
+console.log(getChaseVerdict(150, 149, 1));
+
+
